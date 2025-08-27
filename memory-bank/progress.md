@@ -87,10 +87,10 @@ gantt
     dateFormat  YYYY-MM-DD
     
     section Инициализация
-    VAN Mode           :done, van, 2024-01-01, 1d
+    VAN Mode           :done, van, 2025-08-27, 1d
     
     section Планирование  
-    PLAN Mode          :active, plan, 2024-01-02, 3d
+    PLAN Mode          :active, plan, 2025-08-28, 3d
     
     section Творческая фаза
     CREATIVE Mode      :creative, after plan, 21d

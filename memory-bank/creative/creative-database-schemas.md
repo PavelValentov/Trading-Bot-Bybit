@@ -181,10 +181,10 @@ CREATE TABLE trades (
 );
 
 -- Партиционирование таблицы orders по времени
-CREATE TABLE orders_2024_q1 PARTITION OF orders
-    FOR VALUES FROM ('2024-01-01') TO ('2024-04-01');
-CREATE TABLE orders_2024_q2 PARTITION OF orders
-    FOR VALUES FROM ('2024-04-01') TO ('2024-07-01');
+CREATE TABLE orders_2025_q1 PARTITION OF orders
+    FOR VALUES FROM ('2025-01-01') TO ('2025-04-01');
+CREATE TABLE orders_2025_q2 PARTITION OF orders
+    FOR VALUES FROM ('2025-04-01') TO ('2025-07-01');
 -- ... дополнительные партиции
 
 -- Индексы для оптимизации запросов
@@ -624,7 +624,7 @@ sh.shardCollection("market_data_db.ohlcv_data", { "symbol": 1, "open_time": 1 })
   "_id": ObjectId,
   "symbol": "BTC",
   "platform": "twitter", // twitter, reddit, telegram
-  "date": ISODate("2024-01-15"),
+  "date": ISODate("2025-01-15"),
   "timeframe": "1h", // 1h, 4h, 1d
   
   "metrics": {
@@ -970,7 +970,7 @@ db.pattern_detection.createIndex({ "symbol": 1, "pattern.name": 1, "status": 1 }
 {
   "_id": ObjectId,
   "model_id": ObjectId,
-  "date": ISODate("2024-01-15"),
+  "date": ISODate("2025-01-15"),
   
   "daily_metrics": {
     "predictions_count": 24,
@@ -1099,7 +1099,7 @@ INCR seq:trades
 
 ```redis
 # Метрики производительности (Hash)
-HSET metrics:trading:daily:2024-01-15 total_trades 150 \
+HSET metrics:trading:daily:2025-01-15 total_trades 150 \
                                         winning_trades 95 \
                                         total_pnl 1250.50 \
                                         win_rate 63.33
@@ -1123,8 +1123,8 @@ EXPIRE system_metrics 60  # Обновляется каждую минуту
 
 ```sql
 -- Партиционирование больших таблиц
-CREATE TABLE orders_2024 PARTITION OF orders
-    FOR VALUES FROM ('2024-01-01') TO ('2025-01-01');
+CREATE TABLE orders_2025 PARTITION OF orders
+    FOR VALUES FROM ('2025-01-01') TO ('2026-01-01');
 
 -- Частичные индексы для активных данных
 CREATE INDEX idx_orders_active ON orders(symbol, status) 
@@ -1166,7 +1166,7 @@ db.market_prices.createIndex(
 // Hints для принудительного использования индексов
 db.market_prices.find({
     "symbol": "BTCUSDT",
-    "timestamp": { $gte: ISODate("2024-01-01") }
+    "timestamp": { $gte: ISODate("2025-01-01") }
 }).hint({ "symbol": 1, "timestamp": -1 });
 ```
 
