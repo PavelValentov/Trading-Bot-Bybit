@@ -1,212 +1,142 @@
 # 🚀 Bybit Trading Bot - Advanced Algorithmic Trading System
 
-![Project Status](https://img.shields.io/badge/Status-CREATIVE%20PHASE%20COMPLETED-success)
-![Progress](https://img.shields.io/badge/Progress-65%25-orange)
-![Architecture](https://img.shields.io/badge/Architecture-Microservices-blue)
-![Next Phase](https://img.shields.io/badge/Next-IMPLEMENT%20MODE-brightgreen)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.5+-blue.svg)](https://www.typescriptlang.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
 
-## 📊 Project Overview
-
-Advanced algorithmic trading bot for cryptocurrency markets (primarily Bybit) that combines multiple analysis factors for automated trading decisions on 4-hour timeframes.
-
-### 🎯 Key Features
-- **Multi-factor Analysis**: 17+ technical indicators, 11+ news sources, 15+ macro indicators
-- **Adaptive Decision Engine**: Hybrid ML + expert rules system
-- **Microservices Architecture**: 15 specialized services for scalability
-- **Context-Aware Weights**: Market regime-based signal weighting
-- **Real-time Processing**: < 100ms decision latency for trading operations
-
-## 🏗️ Architecture
-
-### Core Components
-1. **Decision Engine** - Hybrid adaptive decision algorithm
-2. **Weight System** - Context-adaptive coefficient management  
-3. **Microservices** - 15 specialized services
-4. **Database Layer** - PostgreSQL + MongoDB + Redis optimization
-
-### Technology Stack
-- **Frontend**: Next.js
-- **Backend**: Nest.js (Microservices)
-- **Databases**: PostgreSQL, MongoDB, Redis
-- **Infrastructure**: Docker Compose
-- **APIs**: gRPC, HTTP REST, WebSocket
-- **Monitoring**: Prometheus + Grafana
-
-## 📁 Project Structure
-
-```
-/
-├── memory-bank/                    # Project documentation & specifications
-│   ├── creative/                   # CREATIVE phase outputs
-│   │   ├── creative-weight-system.md      (3000+ lines)
-│   │   ├── creative-microservices.md      (2500+ lines)
-│   │   └── creative-database-schemas.md   (2000+ lines)
-│   ├── projectbrief.md            # Project overview
-│   ├── tasks.md                   # Task tracking with file references
-│   ├── systemPatterns.md          # Architectural patterns
-│   └── ...
-├── .cursor/rules/                 # Development workflow rules
-├── services/                      # [Planned] Microservices implementation
-├── migrations/                    # [Planned] Database migrations
-├── docker-compose.yml             # [Planned] Infrastructure setup
-└── monitoring/                    # [Planned] Monitoring configuration
-```
-
-## 🎨 CREATIVE Phase Completed (✅)
-
-### ✅ TASK-004: Decision Algorithm
-- **Solution**: Hybrid Adaptive System (ML + Expert Rules)
-- **Performance**: < 100ms response time
-- **Features**: Risk filters, adaptive weights, full interpretability
-
-### ✅ TASK-005: Weight System  
-- **Solution**: Context-Adaptive Weight Management
-- **Features**: 5 market regimes, performance-based adaptation
-- **Documentation**: [creative-weight-system.md](memory-bank/creative/creative-weight-system.md)
-
-### ✅ TASK-006: Microservices Architecture
-- **Solution**: 15 specialized microservices
-- **Communication**: gRPC + HTTP + Events + WebSocket
-- **Documentation**: [creative-microservices.md](memory-bank/creative/creative-microservices.md)
-
-### ✅ TASK-007: Database Schemas
-- **Solution**: Database-per-service with optimizations
-- **Databases**: 4 PostgreSQL + 4 MongoDB + Redis
-- **Documentation**: [creative-database-schemas.md](memory-bank/creative/creative-database-schemas.md)
-
-## 📈 Project Progress
-
-| Phase | Status | Progress | Documentation |
-|-------|--------|----------|---------------|
-| �� VAN (Initialization) | ✅ Complete | 100% | Memory Bank setup |
-| 📋 PLAN (Planning) | ✅ Complete | 100% | Level 4 architectural planning |
-| 🎨 CREATIVE (Design) | ✅ Complete | 100% | 8000+ lines specifications |
-| 🛠️ IMPLEMENT (Development) | 🔄 Ready | 0% | Ready to begin |
-| 🔍 REFLECT (Review) | ⏳ Pending | 0% | After implementation |
-| 📚 ARCHIVE (Documentation) | ⏳ Pending | 0% | Final documentation |
-
-**Overall Progress: 65%**
-
-## 🚀 Next Steps (IMPLEMENT MODE)
-
-### Immediate Actions
-1. **Setup Development Environment**
-   - Initialize microservices structure
-   - Configure Docker Compose
-   - Setup databases and migrations
-
-2. **Core Services Development**
-   - Decision Engine Service
-   - Trading Service  
-   - Risk Management Service
-   - Portfolio Service
-
-3. **Data Collection Services**
-   - Market Data Service
-   - News Collection Service
-   - Technical Analysis Service
-
-### Development Phases
-- **Phase 1**: Core infrastructure and MVP (8-12 weeks)
-- **Phase 2**: Full feature implementation (16-20 weeks)  
-- **Phase 3**: Production deployment (20-24 weeks)
-
-## 📚 Documentation
-
-### Memory Bank Structure
-- **[projectbrief.md](memory-bank/projectbrief.md)** - Project overview and requirements
-- **[tasks.md](memory-bank/tasks.md)** - Detailed task tracking with file references
-- **[systemPatterns.md](memory-bank/systemPatterns.md)** - Architectural patterns and principles
-- **[techContext.md](memory-bank/techContext.md)** - Technical implementation context
-- **[productContext.md](memory-bank/productContext.md)** - Business context and requirements
-
-### Creative Phase Outputs
-- **[Weight System Specification](memory-bank/creative/creative-weight-system.md)** - Complete weight management system
-- **[Microservices Architecture](memory-bank/creative/creative-microservices.md)** - Detailed service specifications  
-- **[Database Schemas](memory-bank/creative/creative-database-schemas.md)** - Optimized database designs
-
-## 🔧 Development Setup
-
-### Prerequisites
-- Node.js 18+
-- Docker & Docker Compose
-- PostgreSQL 15+
-- MongoDB 6+
-- Redis 7+
-
-### Quick Start
-```bash
-# Clone repository
-git clone git@github.com:PavelValentov/Trading-Bot-Bybit.git
-cd Trading-Bot-Bybit
-
-# Setup development environment (coming soon)
-# docker-compose -f docker-compose.dev.yml up -d
-
-# Install dependencies (coming soon)
-# npm install
-
-# Start development servers (coming soon)
-# npm run dev
-```
-
-## 📋 Task Management
-
-This project uses a comprehensive task tracking system with **mandatory file references**. Every task must include:
-
-- **Created files**: Full paths to files created
-- **Modified files**: Paths and description of changes
-- **Related files**: Dependencies and connections
-
-Example format:
-```markdown
-## FILE REFERENCES
-### Created files:
-- `/src/services/decision-engine.service.ts` - Main decision algorithm
-- `/tests/decision-engine.spec.ts` - Unit tests
-
-### Modified files:
-- `/docker-compose.yml` - Added decision engine service
-
-### Related files:
-- `/memory-bank/creative/creative-weight-system.md` - Weight system specification
-```
-
-## 🤝 Contributing
-
-This project follows a structured development workflow:
-
-1. **VAN Mode**: Project initialization and analysis
-2. **PLAN Mode**: Detailed planning and architecture  
-3. **CREATIVE Mode**: Design and specification ✅ **COMPLETED**
-4. **IMPLEMENT Mode**: Technical implementation 🔄 **NEXT**
-5. **REFLECT Mode**: Review and optimization
-6. **ARCHIVE Mode**: Final documentation
-
-## 📊 Project Metrics
-
-- **Lines of Specification**: 8000+
-- **Microservices Designed**: 15
-- **Database Schemas**: 12
-- **API Endpoints Planned**: 50+
-- **Technical Decisions Made**: 25+
-
-## 🔐 Security Considerations
-
-- JWT-based authentication
-- Multi-level risk management
-- Encrypted API keys storage
-- Service isolation and communication security
-- Real-time monitoring and alerting
-
-## 📞 Contact
-
-**Project Lead**: Pavel Valentov  
-**Repository**: [Trading-Bot-Bybit](https://github.com/PavelValentov/Trading-Bot-Bybit)
+Профессиональный алгоритмический торговый бот для криптовалютной биржи Bybit с интеллектуальным анализом рынка и автоматическим принятием торговых решений.
 
 ---
 
-⚡ **Ready for IMPLEMENT MODE** - All architectural decisions made, specifications complete, ready for development team to begin implementation.
+## 📋 ТЕХНИЧЕСКОЕ И ПРОДУКТОВОЕ ЗАДАНИЕ
+
+### 🎯 **Для заказчика и аналитиков**
+
+Перед началом разработки необходимо ознакомиться с детальной документацией проекта:
+
+#### 📚 **[Полная документация проекта](./documentation/index.md)**
+
+### 🎯 **Основные разделы:**
+
+#### 🌟 [Продуктовая спецификация](./documentation/product-specification/)
+- **[Продуктовое видение и цели](./documentation/product-specification/product-vision.md)** - Общее видение продукта, целевая аудитория, конкурентные преимущества
+- **[Функциональные требования](./documentation/product-specification/functional-requirements.md)** - Детальные требования к функциональности
+- **[Пользовательские истории](./documentation/product-specification/user-stories.md)** - Сценарии использования системы
+- **[Бизнес-логика торговли](./documentation/product-specification/trading-logic.md)** - Алгоритмы принятия торговых решений
+
+#### 🔧 [Техническая спецификация](./documentation/technical-requirements/)
+- **[Архитектура системы](./documentation/technical-requirements/system-architecture.md)** - Микросервисная архитектура, взаимодействие компонентов
+- **[Технический стек](./documentation/technical-requirements/tech-stack.md)** - Используемые технологии и обоснование выбора
+- **[API интеграции](./documentation/technical-requirements/api-integrations.md)** - Интеграция с Bybit и внешними сервисами
+- **[Схемы баз данных](./documentation/technical-requirements/database-schemas.md)** - Структура данных PostgreSQL, MongoDB, Redis
+- **[Безопасность системы](./documentation/technical-requirements/security-requirements.md)** - Требования к безопасности
+
+#### 📊 [Управление проектом](./documentation/project-management/)
+- **[План реализации](./documentation/project-management/implementation-plan.md)** - Поэтапный план разработки с таймингами
+- **[Временные рамки и этапы](./documentation/project-management/timeline-milestones.md)** - Детальные сроки и контрольные точки
+- **[Ресурсы и команда](./documentation/project-management/resources-team.md)** - Состав команды и роли
+- **[Бюджет и стоимость](./documentation/project-management/budget-costs.md)** - Стоимость разработки по этапам
+- **[Риски и митигации](./documentation/project-management/risks-mitigations.md)** - Анализ рисков проекта
+
+#### 📈 [Бизнес-анализ](./documentation/business-analysis/)
+- **[Требования к заказчику](./documentation/business-analysis/client-requirements.md)** - Обязательства и требования со стороны заказчика
+- **[Процессы взаимодействия](./documentation/business-analysis/collaboration-process.md)** - Процессы коммуникации и сотрудничества
+- **[Критерии приемки](./documentation/business-analysis/acceptance-criteria.md)** - Критерии готовности и приемки проекта
+- **[ROI и эффективность](./documentation/business-analysis/roi-analysis.md)** - Анализ окупаемости и эффективности
+
+---
+
+## 💰 СТОИМОСТЬ И СРОКИ ПРОЕКТА
+
+### 📅 **Общие параметры проекта:**
+- **Длительность:** 16-20 недель (4-5 месяцев)
+- **Команда:** 4-6 специалистов
+- **Общая стоимость:** $145,000 - $200,000
+- **Методология:** Agile + MVP-driven development
+
+### 💵 **Стоимость по этапам:**
+
+| Этап | Длительность | Команда | Стоимость | Результат |
+|------|-------------|---------|-----------|-----------|
+| **MVP** | 4-5 недель | 4 чел. | $25,000 - $35,000 | Базовая торговая система |
+| **Аналитика** | 4-5 недель | 5 чел. | $30,000 - $40,000 | 17+ индикаторов + новости |
+| **AI/ML** | 4-5 недель | 6 чел. | $40,000 - $55,000 | Машинное обучение |
+| **Enterprise** | 4-5 недель | 5 чел. | $35,000 - $45,000 | Продакшн-готовое решение |
+| **Тестирование** | 2-4 недели | 3-4 чел. | $15,000 - $25,000 | Полное тестирование |
+
+### 📊 **Дополнительные расходы (ежемесячно):**
+- **Инфраструктура AWS/GCP:** $2,000 - $5,000
+- **API лицензии и данные:** $1,000 - $3,000
+- **Поддержка и сопровождение:** $10,000 - $15,000
+
+---
+
+## 🎯 КЛЮЧЕВЫЕ ОСОБЕННОСТИ СИСТЕМЫ
+
+### 🤖 **Интеллектуальная торговая система**
+- **Гибридный алгоритм** принятия решений (ML + экспертные правила)
+- **17+ технических индикаторов** (RSI, MACD, Bollinger Bands, Ichimoku и др.)
+- **Фундаментальный анализ** новостей и социальных сетей
+- **Макроэкономические данные** (ставки ФРС, инфляция, DXY)
+- **Адаптивная система весов** для различных рыночных условий
+
+### 📊 **Источники данных**
+- **Технический анализ:** Momentum, RSI, MACD, Bollinger Bands, Moving Averages, ADX, Stochastic, CCI, MFI, OBV, VWAP, ATR, Support & Resistance, Fibonacci, Ichimoku
+- **Фундаментальный анализ:** CoinTelegraph API, NewsNow, Twitter/X API, Reddit API, Telegram, Discord API
+- **Макроэкономика:** Fed/ECB/BoJ данные, CPI, PPI, Non-Farm Payrolls, DXY, US Treasuries, S&P 500, VIX
+- **Блокчейн аналитика:** Glassnode API, Santiment API, LunarCrush API, Messari API
+
+### 🏗️ **Архитектура**
+- **15 микросервисов** с четким разделением ответственности
+- **Event-driven архитектура** для real-time обработки
+- **Высокая доступность** и отказоустойчивость
+- **Горизонтальное масштабирование**
+
+---
+
+## 📞 ОБСУЖДЕНИЕ С ЗАКАЗЧИКОМ
+
+### 🎯 **Следующие шаги:**
+
+1. **📖 Изучение документации** - ознакомление с техническим и продуктовым заданием
+2. **�� Обсуждение требований** - встреча для обсуждения функциональности и подходов
+3. **⏰ Согласование сроков** - планирование временных рамок и контрольных точек
+4. **💰 Утверждение бюджета** - согласование стоимости и условий оплаты
+5. **✍️ Подписание ТЗ** - финализация технического задания
+6. **🚀 Начало разработки** - запуск первого спринта
+
+### 📋 **Готовность заказчика:**
+
+Для успешного начала проекта заказчику необходимо:
+- **Назначить ответственных** за продукт и торговую экспертизу
+- **Предоставить API доступы** к Bybit (testnet для начала)
+- **Определить торговые параметры** и риск-лимиты
+- **Выделить время команды** для еженедельных демо и планирования
+
+---
+
+## 🛠️ ТЕКУЩИЙ СТАТУС РАЗРАБОТКИ
+
+### ✅ **Завершено (инфраструктура):**
+- [x] Базовая архитектура проекта
+- [x] Docker инфраструктура (PostgreSQL, MongoDB, Redis)
+- [x] Nest.js приложение с микросервисной структурой
+- [x] Система логирования и мониторинга
+- [x] CI/CD готовность
+
+### 🔄 **В процессе:**
+- [ ] Обсуждение с заказчиком технического задания
+- [ ] Согласование требований и сроков
+- [ ] Финализация архитектурных решений
+
+### ⏳ **Планируется:**
+- [ ] Auth Service - система аутентификации
+- [ ] Trading Service - основной торговый сервис  
+- [ ] Decision Engine - алгоритм принятия решений
+- [ ] Technical Analysis - система технических индикаторов
+
+---
 
 ## 📁 Структура данных Docker контейнеров
 
@@ -283,3 +213,156 @@ docker-compose up -d
 
 **⚡ Эти папки критичны для работы торговой системы - данные сохраняются между перезапусками контейнеров!**
 
+---
+
+## 🏗️ Архитектура проекта
+
+### Технологический стек
+
+#### Backend
+- **Framework:** Nest.js (Node.js + TypeScript)
+- **Архитектура:** Микросервисы + Event-driven
+- **API:** REST + GraphQL + WebSocket
+- **Документация:** Swagger/OpenAPI
+
+#### Базы данных
+- **PostgreSQL:** Транзакционные данные (users, orders, portfolios)
+- **MongoDB:** Временные ряды (market data, news, indicators)
+- **Redis:** Кэширование, сессии, pub/sub
+
+#### Внешние интеграции
+- **Bybit API:** Торговые операции и рыночные данные
+- **News APIs:** CoinTelegraph, NewsNow, Twitter/X
+- **Macro Data:** Alpha Vantage, FRED API
+- **Blockchain Data:** Glassnode, Santiment, Messari
+
+#### Инфраструктура
+- **Контейнеризация:** Docker + Docker Compose
+- **Мониторинг:** Prometheus + Grafana
+- **Логирование:** Winston + ELK Stack
+- **Deployment:** AWS/GCP ready
+
+### Микросервисы архитектура
+
+Система состоит из 15 специализированных микросервисов:
+
+#### Core Services
+- **API Gateway** - точка входа и маршрутизация
+- **Auth Service** - аутентификация и авторизация
+- **Decision Engine** - центральный алгоритм принятия решений
+- **Trading Service** - выполнение торговых операций
+
+#### Data Collection Services  
+- **Market Data Service** - сбор рыночных данных
+- **News Service** - агрегация новостей
+- **Macro Data Service** - макроэкономические данные
+
+#### Analysis Services
+- **Technical Analysis** - технические индикаторы
+- **Fundamental Analysis** - фундаментальный анализ
+- **ML Analysis** - машинное обучение и предсказания
+
+#### Business Services
+- **Portfolio Service** - управление портфелем
+- **Risk Service** - управление рисками
+- **Weight System** - система весовых коэффициентов
+
+#### Infrastructure Services
+- **Config Service** - управление конфигурацией
+- **Metrics Service** - сбор и анализ метрик
+
+---
+
+## 🚀 Быстрый старт
+
+### Предварительные требования
+
+- Node.js 18+
+- Docker и Docker Compose
+- Git
+
+### Установка
+
+```bash
+# Клонирование репозитория
+git clone git@github.com:PavelValentov/Trading-Bot-Bybit.git
+cd Trading-Bot-Bybit
+
+# Установка зависимостей
+npm install
+
+# Настройка переменных окружения
+cp .env.example .env
+# Отредактируйте .env файл с вашими настройками
+
+# Запуск инфраструктуры
+docker-compose up -d
+
+# Сборка проекта
+npm run build
+
+# Запуск в режиме разработки
+npm run start:dev
+```
+
+### Доступные endpoints
+
+- **API Documentation:** http://localhost:3000/api/docs
+- **Health Check:** http://localhost:3000/api/v1/health
+- **Grafana Monitoring:** http://localhost:3015 (admin/admin)
+- **Prometheus Metrics:** http://localhost:9090
+
+---
+
+## �� Система мониторинга
+
+### Метрики производительности
+- **Latency:** Время принятия торговых решений
+- **Throughput:** Количество обработанных сигналов
+- **Accuracy:** Точность торговых прогнозов
+- **Uptime:** Доступность системы
+
+### Бизнес метрики
+- **PnL:** Прибыль и убытки по торговым операциям  
+- **Win Rate:** Процент прибыльных сделок
+- **Sharpe Ratio:** Риск-скорректированная доходность
+- **Max Drawdown:** Максимальная просадка
+
+---
+
+## �� Безопасность
+
+### Аутентификация и авторизация
+- JWT токены с ротацией
+- Multi-factor authentication (MFA)
+- Role-based access control (RBAC)
+
+### Защита данных
+- Шифрование API ключей в базе данных
+- HTTPS/TLS для всех подключений
+- Rate limiting и DDoS защита
+- Audit logging всех операций
+
+---
+
+## 📞 Поддержка и контакты
+
+### Для заказчиков
+- **Email:** trading-bot-support@company.com
+- **Slack:** #trading-bot-project
+- **Документация:** [./documentation/](./documentation/)
+
+### Для разработчиков
+- **GitHub Issues:** [Issues](https://github.com/PavelValentov/Trading-Bot-Bybit/issues)
+- **API Documentation:** [Swagger UI](http://localhost:3000/api/docs)
+- **Architecture Docs:** [./memory-bank/](./memory-bank/)
+
+---
+
+## 📄 Лицензия
+
+Этот проект лицензирован под MIT License - подробности в файле [LICENSE](LICENSE).
+
+---
+
+**⚡ Готов к обсуждению проекта с заказчиком! Свяжитесь с нами для детального планирования и начала разработки.**
