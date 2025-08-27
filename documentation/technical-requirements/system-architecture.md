@@ -305,7 +305,7 @@ interface APIGateway {
 
 #### **MongoDB - Документы и временные ряды**
 ```
-�� Collections:
+[Docker] Collections:
 ├── market_data      # OHLCV данные по парам
 ├── news_articles    # Новости и sentiment
 ├── indicators       # Технические индикаторы
@@ -370,7 +370,7 @@ interface SystemEvents {
 
 ## 🔒 БЕЗОПАСНОСТЬ АРХИТЕКТУРЫ
 
-### 🛡️ **Security Layers**
+### [Security] **Security Layers**
 
 #### **1. Perimeter Security**
 - **WAF (Web Application Firewall)** - защита от OWASP Top 10
@@ -494,7 +494,7 @@ interface HealthCheck {
 
 ## 🚀 DEPLOYMENT АРХИТЕКТУРА
 
-### 🐳 **Container Orchestration**
+### [Docker] **Container Orchestration**
 
 #### **Docker Compose (Development)**
 ```yaml
@@ -538,7 +538,7 @@ spec:
             cpu: "500m"
 ```
 
-### ☁️ **Cloud Architecture (AWS)**
+### [Cloud] **Cloud Architecture (AWS)**
 ```mermaid
 graph TB
     subgraph "AWS Cloud"

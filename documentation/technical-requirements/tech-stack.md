@@ -221,7 +221,7 @@ export class TradingController {
 
 ---
 
-## 🤖 MACHINE LEARNING STACK
+## [AI] MACHINE LEARNING STACK
 
 ### 🐍 **ML Runtime: Python 3.11+**
 
@@ -258,7 +258,7 @@ rf_model = RandomForestClassifier(
 )
 ```
 
-### ⚡ **ML API: FastAPI**
+### [Performance] **ML API: FastAPI**
 ```python
 # ML service API
 @app.post("/predict/price")
@@ -387,7 +387,7 @@ it('/POST trading/orders', () => {
 
 ---
 
-## 🐳 CONTAINERIZATION & ORCHESTRATION
+## [Docker] CONTAINERIZATION & ORCHESTRATION
 
 ### 📦 **Containerization: Docker**
 
@@ -437,9 +437,9 @@ spec:
 
 ---
 
-## ☁️ CLOUD & INFRASTRUCTURE
+## [Cloud] CLOUD & INFRASTRUCTURE
 
-### 🌩️ **Cloud Platform: AWS (Primary)**
+### [AWS] **Cloud Platform: AWS (Primary)**
 
 #### **Compute Services:**
 - **ECS/EKS** - контейнерная оркестрация
@@ -501,7 +501,7 @@ const span = tracer.startSpan('execute-order');
 
 ## 🔒 SECURITY STACK
 
-### 🛡️ **Authentication & Authorization**
+### [Security] **Authentication & Authorization**
 
 #### **JWT Tokens**
 ```typescript
@@ -556,7 +556,7 @@ export class CreateOrderDto {
 
 ## 📈 PERFORMANCE OPTIMIZATION
 
-### ⚡ **Caching Strategy**
+### [Performance] **Caching Strategy**
 
 #### **Multi-level Caching**
 ```typescript
