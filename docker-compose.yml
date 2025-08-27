@@ -1,0 +1,208 @@
+version: '3.8'
+
+services:
+  # Databases
+  postgres:
+    image: postgres:15-alpine
+    container_name: trading-postgres
+    environment:
+      POSTGRES_DB: trading_db
+      POSTGRES_USER: trading_user
+      POSTGRES_PASSWORD: trading_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations/postgresql:/docker-entrypoint-initdb.d
+    networks:
+      - trading-network
+
+  mongodb:
+    image: mongo:6
+    container_name: trading-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: trading_data
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./migrations/mongodb:/docker-entrypoint-initdb.d
+    networks:
+      - trading-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: trading-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - trading-network
+
+  # Core Services
+  api-gateway:
+    build:
+      context: .
+      dockerfile: services/api-gateway/Dockerfile
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+    depends_on:
+      - postgres
+      - redis
+      - auth-service
+    networks:
+      - trading-network
+    volumes:
+      - ./logs:/app/logs
+
+  decision-engine:
+    build:
+      context: .
+      dockerfile: services/decision-engine/Dockerfile
+    container_name: decision-engine
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+    depends_on:
+      - postgres
+      - redis
+      - weight-system
+    networks:
+      - trading-network
+
+  trading-service:
+    build:
+      context: .
+      dockerfile: services/trading-service/Dockerfile
+    container_name: trading-service
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=development
+      - PORT=3002
+      - BYBIT_TESTNET=true
+    depends_on:
+      - postgres
+      - decision-engine
+    networks:
+      - trading-network
+
+  # Data Collection Services
+  market-data-service:
+    build:
+      context: .
+      dockerfile: services/market-data-service/Dockerfile
+    container_name: market-data-service
+    ports:
+      - "3005:3005"
+    environment:
+      - NODE_ENV=development
+      - PORT=3005
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - trading-network
+
+  # Analysis Services
+  technical-analysis:
+    build:
+      context: .
+      dockerfile: services/technical-analysis/Dockerfile
+    container_name: technical-analysis
+    ports:
+      - "3008:3008"
+    environment:
+      - NODE_ENV=development
+      - PORT=3008
+    depends_on:
+      - mongodb
+      - redis
+      - market-data-service
+    networks:
+      - trading-network
+
+  # Infrastructure Services
+  auth-service:
+    build:
+      context: .
+      dockerfile: services/auth-service/Dockerfile
+    container_name: auth-service
+    ports:
+      - "3012:3012"
+    environment:
+      - NODE_ENV=development
+      - PORT=3012
+    depends_on:
+      - postgres
+    networks:
+      - trading-network
+
+  weight-system:
+    build:
+      context: .
+      dockerfile: services/weight-system/Dockerfile
+    container_name: weight-system
+    ports:
+      - "3011:3011"
+    environment:
+      - NODE_ENV=development
+      - PORT=3011
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - trading-network
+
+  # Monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+    networks:
+      - trading-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3015:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+    depends_on:
+      - prometheus
+    networks:
+      - trading-network
+
+volumes:
+  postgres_data:
+  mongodb_data:
+  redis_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  trading-network:
+    driver: bridge

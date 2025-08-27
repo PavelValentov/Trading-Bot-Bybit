@@ -1,5 +1,9 @@
 .idea/
 
+data/mongodb/*
+data/postgres/*
+data/redis/*
+
 /custom_modes
 /backup
 /temp
