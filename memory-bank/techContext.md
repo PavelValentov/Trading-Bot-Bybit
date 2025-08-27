@@ -93,7 +93,7 @@
 ## DOCKER DATA PERSISTENCE АРХИТЕКТУРА
 
 ### СЛУЖЕБНЫЕ ПАПКИ ДАННЫХ
-**Дата добавления:** $(date '+%Y-%m-%d %H:%M:%S')
+**Дата добавления:** 2025-08-27 17:10:00
 
 #### 🗄️ DATA PERSISTENCE STRATEGY:
 
@@ -206,7 +206,7 @@ DATA_PATH=/opt/trading-bot/data
 ```bash
 # Automated backup script
 #!/bin/bash
-DATE=$(date +%Y%m%d_%H%M%S)
+DATE=2025-08-27 17:10:00
 tar -czf "backup_${DATE}.tar.gz" \
     ./data/postgres \
     ./data/mongodb \

@@ -203,7 +203,7 @@ services:
 du -sh ./data/*
 
 # Backup всех данных
-tar -czf backup-$(date +%Y%m%d).tar.gz ./data/
+tar -czf backup-2025-08-27 17:10:00.tar.gz ./data/
 
 # Очистка данных (ОСТОРОЖНО!)
 docker-compose down

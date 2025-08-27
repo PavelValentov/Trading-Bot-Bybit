@@ -267,4 +267,4 @@ export const databaseConfig = {
 - Spell checker для русского в документации
 
 ## ОБНОВЛЕНО
-$(date '+%Y-%m-%d %H:%M:%S')
+2025-08-27 17:10:00
