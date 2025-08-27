@@ -241,3 +241,165 @@ File references должны соответствовать структуре g
 Начиная с данного момента, ЛЮБАЯ задача без корректных file references считается **НЕПОЛНОЙ** и должна быть дополнена перед закрытием.
 
 **Ответственность:** Каждый участник команды обязан включать file references в свои задачи.
+
+## ПАТТЕРН ЯЗЫКОВОЙ ПОЛИТИКИ
+
+### КРИТИЧЕСКОЕ СИСТЕМНОЕ ТРЕБОВАНИЕ
+**Дата внедрения:** $(date '+%Y-%m-%d %H:%M:%S')
+
+### 🌐 ДВУЯЗЫЧНЫЙ ПОДХОД К РАЗРАБОТКЕ
+
+#### 🇷�� РУССКИЙ ЯЗЫК (Документация и планирование)
+```
+Domain: Документация, планирование, коммуникация
+Scope: Memory Bank, спецификации, задачи, README
+Pattern: Полное использование русского языка для всех документов
+```
+
+#### 🇺🇸 АНГЛИЙСКИЙ ЯЗЫК (Программирование)
+```
+Domain: Исходный код, технические файлы
+Scope: Код, комментарии, API, конфигурации, тесты
+Pattern: Полное использование английского языка для всего кода
+```
+
+### АРХИТЕКТУРНОЕ ОБОСНОВАНИЕ
+
+#### Преимущества двуязычного подхода:
+1. **Четкое разделение** между planning и implementation фазами
+2. **Лучшее понимание** бизнес-требований в русскоязычной команде
+3. **Профессиональные стандарты** кода для международной совместимости
+4. **Снижение cognitive load** - каждая область имеет свой язык
+
+#### Системная консистентность:
+- **Memory Bank docs** → Русский → Лучшее планирование
+- **Source code** → Английский → Профессиональные стандарты
+- **API documentation** → Английский → Техническая точность
+- **Business docs** → Русский → Понятность требований
+
+### ENFORCEMENT PATTERNS
+
+#### Code Review Pattern:
+```markdown
+Language Check:
+1. Code files: English only ✅
+2. Comments in code: English only ✅  
+3. Memory Bank docs: Russian only ✅
+4. Commit messages: Russian ✅
+```
+
+#### File Organization Pattern:
+```
+/memory-bank/           # 🇷🇺 Russian documentation
+  ├── *.md             # Russian language
+  └── creative/        # Russian specifications
+
+/src/                  # 🇺🇸 English code
+  ├── **/*.ts         # English code & comments
+  ├── **/*.js         # English code & comments
+  └── **/*.json       # English configuration
+
+/docs/api/             # 🇺🇸 English API docs
+  └── *.yaml          # English OpenAPI specs
+```
+
+#### Communication Pattern:
+```
+Team Communication:    🇷🇺 Russian (planning, discussion)
+Code Documentation:    🇺🇸 English (technical specs)
+Business Requirements: 🇷🇺 Russian (clarity & understanding)
+Technical Standards:   🇺🇸 English (industry compliance)
+```
+
+### КАЧЕСТВЕННЫЕ МЕТРИКИ
+
+#### Compliance Indicators:
+- **Code Consistency**: 100% English in source files
+- **Documentation Clarity**: 100% Russian in Memory Bank
+- **API Standards**: 100% English in technical APIs
+- **Team Understanding**: Russian business docs comprehension
+
+#### Automated Validation:
+```yaml
+eslint_rules:
+  - no_russian_in_code_comments
+  - english_only_variable_names
+  - english_function_names
+
+documentation_checks:
+  - russian_memory_bank_files
+  - english_api_documentation
+```
+
+### INTEGRATION WITH WORKFLOW
+
+#### VAN Mode: 
+- Analysis documents → Russian
+- File structure → English
+
+#### PLAN Mode:
+- Planning documents → Russian  
+- Technical specs → English foundations
+
+#### CREATIVE Mode:
+- Design documents → Russian
+- Code architecture → English preparation
+
+#### IMPLEMENT Mode:
+- All source code → English
+- Progress tracking → Russian
+
+#### REFLECT/ARCHIVE Mode:
+- Analysis documents → Russian
+- Code documentation → English
+
+### ПАТТЕРН ПРИМЕНЕНИЯ В TASKS
+
+#### Task Description Pattern:
+```markdown
+## ЗАДАЧА: [Русское название]
+**Описание:** [Русский текст описания]
+
+### FILE REFERENCES
+#### Созданные файлы:
+- `/src/services/auth.service.ts` - [Русское описание назначения]
+- `/tests/auth.spec.ts` - [Русское описание тестов]
+
+#### Техническая реализация:
+[Русское описание подхода и архитектурных решений]
+```
+
+#### Code Implementation Pattern:
+```typescript
+/**
+ * Authentication service for trading platform
+ * Handles JWT tokens and user session management
+ */
+@Injectable()
+export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+  
+  /**
+   * Authenticates user and generates JWT token
+   * @param credentials User login credentials
+   * @returns Authentication result with token
+   */
+  async authenticate(credentials: LoginCredentials): Promise<AuthResult> {
+    // Validate user credentials against database
+    const user = await this.validateCredentials(credentials);
+    
+    // Generate JWT token for authenticated user
+    return this.generateAuthToken(user);
+  }
+}
+```
+
+### СИСТЕМНОЕ ТРЕБОВАНИЕ
+
+**Все участники проекта ОБЯЗАНЫ:**
+- Соблюдать языковую политику в 100% случаев
+- Проверять соответствие при Code Review
+- Использовать automated checks для контроля
+- Поддерживать консистентность во всех фазах проекта
+
+**Нарушение языковой политики считается критической ошибкой проекта.**
